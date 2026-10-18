@@ -73,7 +73,9 @@ bool CMenuPlayerIntroduceDialog::KeyDown( int key )
 		return true; // handled
 	}
 
-	if( UI::Key::IsEnter( key ) && ItemAtCursor() == &name )
+	// Enter of the keyboard finishes typing the name, gamepad A button only
+	// activates the field, so it can open the system keyboard
+	if(( key == K_ENTER || key == K_KP_ENTER ) && ItemAtCursor() == &name )
 	{
 		WriteOrDiscard();
 	}
